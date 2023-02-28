@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { ThemeContext } from "../App"
+import { ThemeContext } from "../../App"
 import styled from "styled-components"
-import Navbar from "../components/navbar/Navbar"
+import Navbar from "../../components/navbar/Navbar"
 
 const Container = styled.div`
     height: 100vh;

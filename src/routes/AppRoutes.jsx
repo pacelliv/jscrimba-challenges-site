@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom"
-import Home from "../pages/Home"
-import Challenge1 from "../pages/Challenge1"
-import Challenge2 from "../pages/Challenge2"
-import Challenge3 from "../pages/Challenge3"
-import Challenge4 from "../pages/Challenge4"
-import Challenge5 from "../pages/Challenge5"
+import Home from "../pages/home/Home"
+import Challenge1 from "../pages/page1/Challenge1"
+import Challenge2 from "../pages/page2/Challenge2"
+import Challenge3 from "../pages/page3/Challenge3"
+import Challenge4 from "../pages/page4/Challenge4"
+import Challenge5 from "../pages/page5/Challenge5"
 
 const AppRoutes = () => {
     return (

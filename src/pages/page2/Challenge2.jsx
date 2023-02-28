@@ -2,7 +2,7 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { useState } from "react"
 import styled from "styled-components"
-import Navbar from "../components/navbar/Navbar"
+import Navbar from "../../components/navbar/Navbar"
 import { MdOutlineContentCopy } from "react-icons/md"
 import { BsCheck2All } from "react-icons/bs"
 
