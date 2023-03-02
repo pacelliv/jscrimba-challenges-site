@@ -1,15 +1,18 @@
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import styled from "styled-components"
 import Navbar from "../../components/navbar/Navbar"
 import { MdOutlineContentCopy } from "react-icons/md"
 import { BsCheck2All } from "react-icons/bs"
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
+import { codeStringA, codeStringB, codeStringC } from "./codeStrings"
 
 const Container = styled.div`
     height: 100vh;
     overflow-y: scroll;
     transition: all 0.3s ease;
+    padding-bottom: 1em;
 
     .main {
         padding: 1.2em 1.55em;
@@ -49,7 +52,7 @@ const Container = styled.div`
     }
 
     .margin-top {
-        margin: 0.3em;
+        margin-top: 0.3em;
     }
 
     .snippet {
@@ -67,6 +70,21 @@ const Container = styled.div`
         color: rgb(210, 210, 210);
     }
 
+    .unset {
+        border-radius: unset;
+    }
+
+    .beige {
+        background-color: #e9d8a6;
+        color: #1c1c1c;
+    }
+
+    .content-parent {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.7s ease;
+    }
+
     .code-snippet {
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -80,7 +98,6 @@ const Container = styled.div`
         align-items: center;
         gap: 5px;
         font-size: inherit;
-        cursor: pointer;
     }
 
     .code {
@@ -91,6 +108,16 @@ const Container = styled.div`
         font-size: 0.72rem;
         letter-spacing: 0.75px;
         color: ${(props) => props.theme.code};
+    }
+
+    .solution-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .solution-toggler {
+        display: flex;
     }
 
     @media (min-width: 650px) {
@@ -104,34 +131,10 @@ const Challenge1 = () => {
     const [copyA, setCopyA] = useState(false)
     const [copyB, setCopyB] = useState(false)
     const [copyC, setCopyC] = useState(false)
-
-    const codeStringA = `
-        function panic(str) {
-            const wordsArr = str.split(" ") // ["winter", "is", "coming"]
-            const joinedWords = wordsArr.join(" 😱 ") // winter 😱 is 😱 coming
-            const upperCasedWords = joinedWords.toUpperCase() // WINTER 😱 IS 😱 COMING
-            return upperCasedWords + "!" // WINTER 😱 IS 😱 COMING!
-        }
-        
-        console.log(panic("winter is coming")) 
-    `
-
-    const codeStringB = `
-        export function panic(str) {
-            return str.split(" ").join(" 😱 ").toUpperCase() + "!"
-        }
-
-        console.log(panic("winter is coming")) // "WINTER 😱 IS 😱 COMING!"
-    `
-
-    const codeStringC = `
-        function panic(str) {
-            const wordsArr = str.split(" ")
-            return wordsArr.map((word) => word.toUpperCase()).join(" 😱 ") + "!"
-        }
-
-        console.log(panic("winter is coming")) // WINTER 😱 IS 😱 COMING!
-    `
+    const [isOpenA, setIsOpenA] = useState(false)
+    const [isOpenB, setIsOpenB] = useState(false)
+    const parentRefA = useRef()
+    const parentRefB = useRef()
 
     return (
         <Container>
@@ -187,183 +190,264 @@ const Challenge1 = () => {
                     </li>
                 </ul>
                 <br />
-                <p className="paragraph bold">Solution A:</p>
-                <br />
-                <p>
-                    We're going to implement the following three JavaScript's
-                    built-in methods:
-                </p>
 
-                <ul className="list">
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"
-                            target="_blank"
-                            className="bold"
+                <div className="solution-container snippet-header beige snippet unset">
+                    <p className="paragraph bold">Solution A:</p>
+                    {isOpenA ? (
+                        <button
+                            className="snippet-button"
+                            onClick={() => setIsOpenA(!isOpenA)}
                         >
-                            <code>split()</code>
-                        </a>
-                        <span>: Turns the string into an array.</span>
-                    </li>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join"
-                            target="_blank"
-                            className="bold"
+                            [
+                            <AiOutlineMinus />] Hide Solution
+                        </button>
+                    ) : (
+                        <button
+                            className="snippet-button"
+                            onClick={() => setIsOpenA(!isOpenA)}
                         >
-                            <code>join()</code>
-                        </a>
-                        <span>
-                            : Concatenates the array back into a string. You can
-                            pass to the method how would you like to concatenate
-                            the array.
-                        </span>
-                    </li>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"
-                            target="_blank"
-                            className="bold"
-                        >
-                            <code>toUpperCase()</code>
-                        </a>
-                        <span>
-                            : Transform the letters of the string to uppercase.
-                        </span>
-                    </li>
-                </ul>
-
-                <br />
-                <div className="snippet">
-                    <div className="snippet-header">
-                        <p className="snippet-title">Example Code</p>
-                        {copyA ? (
-                            <button className="snippet-button">
-                                <BsCheck2All />
-                                Copied!
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    navigator.clipboard.writeText(codeStringA)
-                                    setCopyA(true)
-                                    setTimeout(() => setCopyA(false), 2000)
-                                }}
-                                className="snippet-button"
-                            >
-                                <MdOutlineContentCopy />
-                                Copy Code
-                            </button>
-                        )}
-                    </div>
-                    <SyntaxHighlighter
-                        className="code-snippet"
-                        language="javascript"
-                        style={a11yDark}
-                    >
-                        {codeStringA}
-                    </SyntaxHighlighter>
+                            [<AiOutlinePlus />] Show Solution
+                        </button>
+                    )}
                 </div>
-                <br />
-                <p>
-                    As we can see the <code className="code">split()</code> and{" "}
-                    <code className="code">join()</code> methods work in a
-                    similar way just doing the opposite. In the case of the{" "}
-                    <code className="code">split()</code> method by passing an
-                    empty string to it, we can create a new array with each word
-                    of the string as an individual element of the array.
-                </p>
-
-                <br />
-                <p>
-                    To the <code className="code">join()</code> method we can
-                    pass with <i>what</i> we want to concatenate the words of
-                    the array to create a new sentence.
-                </p>
-                <br />
-                <p>
-                    In JavaScript we can chain methods and provide a DRYer
-                    solution like this:
-                </p>
-                <div className="snippet margin-top">
-                    <div className="snippet-header">
-                        <p className="snippet-title">Example Code</p>
-                        {copyB ? (
-                            <button className="snippet-button">
-                                <BsCheck2All />
-                                Copied!
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    navigator.clipboard.writeText(codeStringB)
-                                    setCopyB(true)
-                                    setTimeout(() => setCopyB(false), 2000)
-                                }}
-                                className="snippet-button"
-                            >
-                                <MdOutlineContentCopy />
-                                Copy Code
-                            </button>
-                        )}
-                    </div>
-                    <SyntaxHighlighter
-                        className="code-snippet"
-                        language="javascript"
-                        style={a11yDark}
+                <div
+                    className="content-parent"
+                    ref={parentRefA}
+                    style={
+                        isOpenA
+                            ? { height: parentRefA.current.scrollHeight + "px" }
+                            : { height: "0px" }
+                    }
+                >
+                    <div
+                        className="answer-container code-snippet"
+                        style={{
+                            border: "1px solid #e9d8a6",
+                            padding: "0 0.4em 0.4em",
+                        }}
                     >
-                        {codeStringB}
-                    </SyntaxHighlighter>
+                        <br />
+                        <p>
+                            We're going to implement the following three
+                            JavaScript's built-in methods:
+                        </p>
+                        <ul className="list">
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    <code>split()</code>
+                                </a>
+                                <span>: Turns the string into an array.</span>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    <code>join()</code>
+                                </a>
+                                <span>
+                                    : Concatenates the array back into a string.
+                                    You can pass to the method how would you
+                                    like to concatenate the array.
+                                </span>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    <code>toUpperCase()</code>
+                                </a>
+                                <span>
+                                    : Transform the letters of the string to
+                                    uppercase.
+                                </span>
+                            </li>
+                        </ul>
+                        <br />
+                        <div className="snippet">
+                            <div className="snippet-header">
+                                <p>Example Code</p>
+                                {copyA ? (
+                                    <button className="snippet-button">
+                                        <BsCheck2All />
+                                        Copied!
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(
+                                                codeStringA
+                                            )
+                                            setCopyA(true)
+                                            setTimeout(
+                                                () => setCopyA(false),
+                                                2000
+                                            )
+                                        }}
+                                        className="snippet-button"
+                                    >
+                                        <MdOutlineContentCopy />
+                                        Copy Code
+                                    </button>
+                                )}
+                            </div>
+                            <SyntaxHighlighter
+                                className="code-snippet"
+                                language="javascript"
+                                style={a11yDark}
+                            >
+                                {codeStringA}
+                            </SyntaxHighlighter>
+                        </div>
+                        <br />
+                        <p>
+                            To the <code className="code">join()</code> method
+                            we can pass with <i>what</i> we want to concatenate
+                            the words of the array to create a new sentence.
+                        </p>
+                        <br />
+                        <p>
+                            In JavaScript we can chain methods and provide a
+                            DRYer solution like this:
+                        </p>
+                        <div className="snippet margin-top">
+                            <div className="snippet-header">
+                                <p>Example Code</p>
+                                {copyB ? (
+                                    <button className="snippet-button">
+                                        <BsCheck2All />
+                                        Copied!
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(
+                                                codeStringB
+                                            )
+                                            setCopyB(true)
+                                            setTimeout(
+                                                () => setCopyB(false),
+                                                2000
+                                            )
+                                        }}
+                                        className="snippet-button"
+                                    >
+                                        <MdOutlineContentCopy />
+                                        Copy Code
+                                    </button>
+                                )}
+                            </div>
+                            <SyntaxHighlighter
+                                className="code-snippet"
+                                language="javascript"
+                                style={a11yDark}
+                            >
+                                {codeStringB}
+                            </SyntaxHighlighter>
+                        </div>
+                    </div>
                 </div>
+
+                {/*  */}
                 <br />
-                <p className="paragraph bold">Solution B:</p>
-                <br />
-                <p className="paragraph">
-                    In this solution we will use the{" "}
-                    <code className="code">
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
-                            target="_blank"
-                            className="bold"
+                <div className="solution-container snippet-header beige snippet unset">
+                    <p className="paragraph bold">Solution B:</p>
+                    {isOpenB ? (
+                        <button
+                            className="snippet-button"
+                            onClick={() => setIsOpenB(!isOpenB)}
                         >
-                            <code>map()</code>
-                        </a>
-                    </code>{" "}
-                    method, this JavaScript's array built-in method allow us to
-                    loop through an array and make changes on each individual
-                    element; this method returns a new array of the same length
-                    with the modified elements. Then, with the new array we will
-                    join the elements back into a single string:
-                </p>
-                <div className=" snippet margin-top">
-                    <div className="snippet-header">
-                        <p className="snippet-title">Example Code</p>
-                        {copyC ? (
-                            <button className="snippet-button">
-                                <BsCheck2All />
-                                Copied!
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    navigator.clipboard.writeText(codeStringC)
-                                    setCopyC(true)
-                                    setTimeout(() => setCopyC(false), 2000)
-                                }}
-                                className="snippet-button"
-                            >
-                                <MdOutlineContentCopy />
-                                Copy Code
-                            </button>
-                        )}
-                    </div>
-                    <SyntaxHighlighter
-                        className="code-snippet"
-                        language="javascript"
-                        style={a11yDark}
+                            [
+                            <AiOutlineMinus />] Hide Solution
+                        </button>
+                    ) : (
+                        <button
+                            className="snippet-button"
+                            onClick={() => setIsOpenB(!isOpenB)}
+                        >
+                            [<AiOutlinePlus />] Show Solution
+                        </button>
+                    )}
+                </div>
+                <div
+                    className="content-parent"
+                    ref={parentRefB}
+                    style={
+                        isOpenB
+                            ? { height: parentRefB.current.scrollHeight + "px" }
+                            : { height: "0px" }
+                    }
+                >
+                    <div
+                        className="answer-container code-snippet"
+                        style={{
+                            border: "1px solid #e9d8a6",
+                            padding: "0 0.4em 0.4em",
+                        }}
                     >
-                        {codeStringC}
-                    </SyntaxHighlighter>
+                        <br />
+                        <p className="paragraph">
+                            In this solution we will use the{" "}
+                            <code className="code">
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    <code>map()</code>
+                                </a>
+                            </code>{" "}
+                            method, this JavaScript's array built-in method
+                            allow us to loop through an array and make changes
+                            on each individual element; this method returns a
+                            new array of the same length with the modified
+                            elements. Then, with the new array we will join the
+                            elements back into a single string:
+                        </p>
+                        <br />
+                        <div className="snippet">
+                            <div className="snippet-header">
+                                <p>Example Code</p>
+                                {copyC ? (
+                                    <button className="snippet-button">
+                                        <BsCheck2All />
+                                        Copied!
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(
+                                                codeStringC
+                                            )
+                                            setCopyC(true)
+                                            setTimeout(
+                                                () => setCopyC(false),
+                                                2000
+                                            )
+                                        }}
+                                        className="snippet-button"
+                                    >
+                                        <MdOutlineContentCopy />
+                                        Copy Code
+                                    </button>
+                                )}
+                            </div>
+                            <SyntaxHighlighter
+                                className="code-snippet"
+                                language="javascript"
+                                style={a11yDark}
+                            >
+                                {codeStringC}
+                            </SyntaxHighlighter>
+                        </div>
+                    </div>
                 </div>
             </div>
         </Container>

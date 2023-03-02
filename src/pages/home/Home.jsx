@@ -7,6 +7,7 @@ const Container = styled.div`
     height: 100vh;
     overflow-y: scroll;
     transition: all 0.3s ease;
+    padding-bottom: 1em;
 
     .main {
         padding: 1.2em 1.55em;

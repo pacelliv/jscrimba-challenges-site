@@ -1,15 +1,17 @@
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import styled from "styled-components"
 import Navbar from "../../components/navbar/Navbar"
 import { MdOutlineContentCopy } from "react-icons/md"
 import { BsCheck2All } from "react-icons/bs"
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 
 const Container = styled.div`
     height: 100vh;
     overflow-y: scroll;
     transition: all 0.3s ease;
+    padding-bottom: 1em;
 
     .main {
         padding: 1.2em 1.55em;
@@ -49,7 +51,7 @@ const Container = styled.div`
     }
 
     .margin-top {
-        margin: 0.3em;
+        margin-top: 0.3em;
     }
 
     .snippet {
@@ -65,6 +67,21 @@ const Container = styled.div`
         border-top-right-radius: 10px;
         padding: 0.8em 1.5em;
         color: rgb(210, 210, 210);
+    }
+
+    .unset {
+        border-radius: unset;
+    }
+
+    .beige {
+        background-color: #e9d8a6;
+        color: #1c1c1c;
+    }
+
+    .content-parent {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.7s ease;
     }
 
     .code-snippet {
@@ -93,6 +110,16 @@ const Container = styled.div`
         color: ${(props) => props.theme.code};
     }
 
+    .solution-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .solution-toggler {
+        display: flex;
+    }
+
     @media (min-width: 650px) {
         .title {
             font-size: 2.5rem;
@@ -102,14 +129,16 @@ const Container = styled.div`
 
 const Challenge2 = () => {
     const [copyA, setCopyA] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    const parentRef = useRef()
 
-    const codeStringA = `
+    const codeString = `
         function whisper(str) {
             const lowerCaseString = str.toLowerCase()
             if (lowerCaseString.endsWith("!")) {
-                return alternatively => return "shh... " + lowerCaseString.slice(0, -1)
+                    return "shh... " + lowerCaseString.slice(0, -1)
             } else {
-                return "shh... " + lowerCaseString
+                    return "shh... " + lowerCaseString
             }
         }
     
@@ -157,104 +186,147 @@ const Challenge2 = () => {
                         </p>
                     </li>
                 </ul>
-
                 <br />
-                <p className="paragraph bold">Solution:</p>
-                <br />
-                <p>
-                    For this challenge we're going to apply the following three
-                    JavaScript's string built-in methods:
-                </p>
-
-                <ul className="list">
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"
-                            target="_blank"
-                            className="bold"
+                <div className="solution-container snippet-header beige snippet unset">
+                    <p className="paragraph bold">Solution:</p>
+                    {isOpen ? (
+                        <button
+                            className="snippet-button"
+                            onClick={() => setIsOpen(!isOpen)}
                         >
-                            <code>toLowerCase()</code>
-                        </a>
-                        <span>
-                            : Transforms the caracthers of a string to lowercase
-                        </span>
-                    </li>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith"
-                            target="_blank"
-                            className="bold"
+                            [
+                            <AiOutlineMinus />] Hide Solution
+                        </button>
+                    ) : (
+                        <button
+                            className="snippet-button"
+                            onClick={() => setIsOpen(!isOpen)}
                         >
-                            <code>endsWith()</code>
-                        </a>
-                        <span>
-                            : Checks if a string ends with a specific character.
-                            Returns either true or false.
-                        </span>
-                    </li>
-                    <li>
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice"
-                            target="_blank"
-                            className="bold"
-                        >
-                            <code>slice()</code>
-                        </a>
-                        <span>
-                            : Extracts a segment of a string, this method
-                            returns a new string without modifying the original.
-                        </span>
-                    </li>
-                </ul>
-
-                <br />
-                <div className="snippet">
-                    <div className="snippet-header">
-                        <p className="snippet-title">Example Code</p>
-                        {copyA ? (
-                            <button className="snippet-button">
-                                <BsCheck2All />
-                                Copied!
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    navigator.clipboard.writeText(codeStringA)
-                                    setCopyA(true)
-                                    setTimeout(() => setCopyA(false), 2000)
-                                }}
-                                className="snippet-button"
-                            >
-                                <MdOutlineContentCopy />
-                                Copy Code
-                            </button>
-                        )}
-                    </div>
-                    <SyntaxHighlighter
-                        className="code-snippet"
-                        language="javascript"
-                        style={a11yDark}
-                    >
-                        {codeStringA}
-                    </SyntaxHighlighter>
+                            [<AiOutlinePlus />] Show Solution
+                        </button>
+                    )}
                 </div>
-                <br />
-                <p>
-                    Using an IF-statement we verify if the string ends with a
-                    exclamation point, if it does, then we lowercase the entire
-                    string and slice the exclamation point.
-                </p>
-                <br />
-                <p>
-                    <code className="code">slice(0, -1)</code> means we will
-                    make a copy of the string from the first character to the
-                    second-last character.
-                </p>
-                <br />
-                <p>
-                    In the case the string doesn't ends with an exclamation
-                    point, then we have to return the lowercased string.
-                </p>
+                <div
+                    className="content-parent"
+                    ref={parentRef}
+                    style={
+                        isOpen
+                            ? { height: parentRef.current.scrollHeight + "px" }
+                            : { height: "0px" }
+                    }
+                >
+                    <div
+                        className="answer-container code-snippet"
+                        style={{
+                            border: "1px solid #e9d8a6",
+                            padding: "0 0.4em 0.4em",
+                        }}
+                    >
+                        <br />
+                        <p>
+                            For this challenge we're going to apply the
+                            following three JavaScript's string built-in
+                            methods:
+                        </p>
+                        <ul className="list">
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    <code>toLowerCase()</code>
+                                </a>
+                                <span>
+                                    : Transforms the caracthers of a string to
+                                    lowercase
+                                </span>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    <code>endsWith()</code>
+                                </a>
+                                <span>
+                                    : Checks if a string ends with a specific
+                                    character. Returns either true or false.
+                                </span>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    <code>slice()</code>
+                                </a>
+                                <span>
+                                    : Extracts a segment of a string, this
+                                    method returns a new string without
+                                    modifying the original.
+                                </span>
+                            </li>
+                        </ul>
+                        <br />
+                        <div className="snippet">
+                            <div className="snippet-header">
+                                <p>Example Code</p>
+                                {copyA ? (
+                                    <button className="snippet-button">
+                                        <BsCheck2All />
+                                        Copied!
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(
+                                                codeString
+                                            )
+                                            setCopyA(true)
+                                            setTimeout(
+                                                () => setCopyA(false),
+                                                2000
+                                            )
+                                        }}
+                                        className="snippet-button"
+                                    >
+                                        <MdOutlineContentCopy />
+                                        Copy Code
+                                    </button>
+                                )}
+                            </div>
+                            <SyntaxHighlighter
+                                className="code-snippet"
+                                language="javascript"
+                                style={a11yDark}
+                            >
+                                {codeString}
+                            </SyntaxHighlighter>
+                        </div>
+                        <br />
+                        <p>
+                            Using an IF-statement we verify if the string ends
+                            with a exclamation point, if it does, then we
+                            lowercase the entire string and slice the
+                            exclamation point.
+                        </p>
+                        <br />
+                        <p>
+                            <code className="code">slice(0, -1)</code> means we
+                            will make a copy of the string from the first
+                            character to the second-last character.
+                        </p>
+                        <br />
+                        <p>
+                            In the case the string doesn't ends with an
+                            exclamation point, then we have to return the
+                            lowercased string.
+                        </p>
+                    </div>
+                </div>
             </div>
         </Container>
     )
