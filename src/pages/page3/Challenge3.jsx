@@ -44,6 +44,12 @@ const Container = styled.div`
         text-decoration: underline;
     }
 
+    .list {
+        margin-top: 0.5em;
+        margin-left: 2.5em;
+        line-height: 1.8;
+    }
+
     .margin-top {
         margin-top: 0.3em;
     }
@@ -127,7 +133,7 @@ const Challenge3 = () => {
     const parentRef = useRef()
 
     const codeString = `
-        export function altCaps(str) {
+        function altCaps(str) {
             let newString = ""
             for (let i = 0; i < str.length; i++) {
                 if (i % 2 === 0) {
@@ -148,7 +154,7 @@ const Challenge3 = () => {
             <Navbar />
             <div className="main">
                 <h1 className="title">03 - Alternating Caps</h1>
-                <p className="date">Mar 4, 2022 &#183; 15min</p>
+                <p className="date">Last updated: Mar 4, 2022 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
