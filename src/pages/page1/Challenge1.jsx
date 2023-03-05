@@ -141,7 +141,7 @@ const Challenge1 = () => {
             <Navbar />
             <div className="main">
                 <h1 className="title">01 - Panic Function</h1>
-                <p className="date">Feb 27, 2022 &#183; 20min</p>
+                <p className="date">Last updated: Mar 4, 2022 &#183; 20min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -317,6 +317,7 @@ const Challenge1 = () => {
                             In JavaScript we can chain methods and provide a
                             DRYer solution like this:
                         </p>
+                        <br />
                         <div className="snippet margin-top">
                             <div className="snippet-header">
                                 <p>Example Code</p>
