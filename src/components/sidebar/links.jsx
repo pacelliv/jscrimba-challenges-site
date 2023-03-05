@@ -2,7 +2,7 @@ import { AiOutlineHome } from "react-icons/ai"
 import { GiScreaming } from "react-icons/gi"
 import { BiVolumeLow } from "react-icons/bi"
 import { HiOutlineSwitchVertical } from "react-icons/hi"
-import { BsCapslockFill } from "react-icons/bs"
+import { RxLetterCaseCapitalize } from "react-icons/rx"
 
 export const links = [
     {
@@ -27,7 +27,7 @@ export const links = [
     },
     {
         label: "Challenge 4",
-        icon: <BsCapslockFill />,
+        icon: <RxLetterCaseCapitalize />,
         to: "/challenge4",
     },
     {
