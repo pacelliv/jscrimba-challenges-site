@@ -259,7 +259,7 @@ const Challenge4 = () => {
                         className="answer-container code-snippet"
                         style={{
                             border: "1px solid #e9d8a6",
-                            padding: "0 0.4em 0.4em",
+                            padding: "0 0.5em 0.5em",
                         }}
                     >
                         <br />
