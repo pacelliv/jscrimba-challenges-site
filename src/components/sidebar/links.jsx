@@ -3,6 +3,7 @@ import { GiScreaming } from "react-icons/gi"
 import { BiVolumeLow } from "react-icons/bi"
 import { HiOutlineSwitchVertical } from "react-icons/hi"
 import { RxLetterCaseCapitalize } from "react-icons/rx"
+import { ImTrophy } from "react-icons/im"
 
 export const links = [
     {
@@ -32,7 +33,7 @@ export const links = [
     },
     {
         label: "Challenge 5",
-        icon: <AiOutlineHome />,
+        icon: <ImTrophy />,
         to: "/challenge5",
     },
 ]
