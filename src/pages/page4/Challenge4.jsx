@@ -82,6 +82,7 @@ const Container = styled.div`
         height: 0;
         overflow: hidden;
         transition: height 0.7s ease;
+        padding-bottom: 0.05em;
     }
 
     .code-snippet {
@@ -98,6 +99,7 @@ const Container = styled.div`
         gap: 5px;
         font-size: inherit;
         cursor: pointer;
+        font-family: "Poppins", sans-serif;
     }
 
     .code {
@@ -134,35 +136,36 @@ const Challenge4 = () => {
     const parentRef = useRef()
 
     const codeStringA = `
-        function capitalizeWord(word) {
-            return word[0].toUpperCase() + word.slice(1)
-        }
+function capitalizeWord(word) {
+    return word[0].toUpperCase() + word.slice(1)
+}
         
-        console.log(capitalizeWord("pumpkin")) // Pumpkin
-    `
+console.log(capitalizeWord("pumpkin")) // Pumpkin
+`
 
     const codeStringB = `
-        function toTitleCase(str) {
-            // Pseudo code:
-            // First, split the string into an array of words
-            // Then, mapped through the array to call capitalizeWord on each word
-            // Finally, joined the array into a new string with spaces in between
-            return str
-                .split(" ")
-                .map((word) => capitalizeWord(word))
-                .join(" ")
-        }
+function toTitleCase(str) {
+    // Pseudo code:
+    // First, split the string into an array of words
+    // Then, mapped through the array to call capitalizeWord on each word
+    // Finally, joined the array into a new string with spaces in between
+    return str
+        .split(" ")
+        .map((word) => capitalizeWord(word))
+        .join(" ")
+}
 
-        // Pumpkin Pranced Purposefully Across The Pond    
-        console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
-    `
+// Pumpkin Pranced Purposefully Across The Pond    
+console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
+`
 
     return (
         <Container>
             <Navbar />
             <div className="main">
                 <h1 className="title">04 - toTitleCase</h1>
-                <p className="date">Mar 4, 2022 &#183; 15min</p>
+                <p className="date">Published: Mar 4, 2022 &#183; 15min</p>
+                <p className="date">Last update: Mar 18, 2022 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -300,6 +303,10 @@ const Challenge4 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeStringA}
                             </SyntaxHighlighter>
@@ -370,6 +377,10 @@ const Challenge4 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeStringB}
                             </SyntaxHighlighter>

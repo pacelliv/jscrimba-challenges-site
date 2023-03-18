@@ -82,6 +82,7 @@ const Container = styled.div`
         height: 0;
         overflow: hidden;
         transition: height 0.7s ease;
+        padding-bottom: 0.01em;
     }
 
     .code-snippet {
@@ -98,6 +99,7 @@ const Container = styled.div`
         gap: 5px;
         font-size: inherit;
         cursor: pointer;
+        font-family: "Poppins", sans-serif;
     }
 
     .code {
@@ -133,29 +135,30 @@ const Challenge5 = () => {
     const parentRef = useRef()
 
     const codeString = `
-        function awardBonuses() {
-            for (let i = 1; i <= 100; i++) {
-                if (i % 15 === 0) {
-                    console.log(i + " - JACKPOT! 1 Million and a Yacht!")
-                } else if (i % 5 === 0) {
-                    console.log(i + " - $100,000 bonus!")
-                } else if (i % 3 === 0) {
-                    console.log(i + " - Vacation!")
-                } else {
-                    console.log(i + " - :(")
-                }
-            }
+function awardBonuses() {
+    for (let i = 1; i <= 100; i++) {
+        if (i % 15 === 0) {
+            console.log(i + " - JACKPOT! 1 Million and a Yacht!")
+        } else if (i % 5 === 0) {
+            console.log(i + " - $100,000 bonus!")
+        } else if (i % 3 === 0) {
+            console.log(i + " - Vacation!")
+        } else {
+            console.log(i + " - :(")
         }
+    }
+}
         
-        awardBonuses() // too many lines, try it yourself!
-    `
+awardBonuses() // too many lines, try it yourself!
+`
 
     return (
         <Container>
             <Navbar />
             <div className="main">
                 <h1 className="title">05 - Totally Not Another FizzBuzz</h1>
-                <p className="date">Mar 6, 2022 &#183; 15min</p>
+                <p className="date">Published: Mar 6, 2022 &#183; 15min</p>
+                <p className="date">Last update: Mar 18, 2022 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -263,13 +266,15 @@ const Challenge5 = () => {
                         <br />
                         <p>
                             To solve this challenge we're going to apply the{" "}
-                            <a
-                                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder"
-                                target="_blank"
-                                className="bold"
-                            >
-                                <code>remainder</code>
-                            </a>{" "}
+                            <code className="code">
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    remainder
+                                </a>
+                            </code>{" "}
                             operator again.
                         </p>
                         <br />
@@ -304,6 +309,10 @@ const Challenge5 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeString}
                             </SyntaxHighlighter>

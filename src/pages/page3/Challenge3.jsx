@@ -82,6 +82,7 @@ const Container = styled.div`
         height: 0;
         overflow: hidden;
         transition: height 0.7s ease;
+        padding-bottom: 0.05em;
     }
 
     .code-snippet {
@@ -98,6 +99,7 @@ const Container = styled.div`
         gap: 5px;
         font-size: inherit;
         cursor: pointer;
+        font-family: "Poppins", sans-serif;
     }
 
     .code {
@@ -133,28 +135,30 @@ const Challenge3 = () => {
     const parentRef = useRef()
 
     const codeString = `
-        function altCaps(str) {
-            let newString = ""
-            for (let i = 0; i < str.length; i++) {
-                if (i % 2 === 0) {
-                    newString += str[i].toUpperCase()
-                } else {
-                    newString += str[i]
-                }
-            }
-            return newString
+function altCaps(str) {
+    let newString = ""
+
+    for (let i = 0; i < str.length; i++) {
+        if (i % 2 === 0) {
+            newString += str[i].toUpperCase()
+        } else {
+            newString += str[i]
         }
+    }
+    return newString
+}
         
-        // WhEn yOu vIsIt POrTlAnD YoU HaVe tO Go tO VoODOo DOnUtS
-        console.log(altCaps("When you visit Portland you have to go to VooDoo Donuts"))
-    `
+// WhEn yOu vIsIt POrTlAnD YoU HaVe tO Go tO VoODOo DOnUtS
+console.log(altCaps("When you visit Portland you have to go to VooDoo Donuts"))
+`
 
     return (
         <Container>
             <Navbar />
             <div className="main">
                 <h1 className="title">03 - Alternating Caps</h1>
-                <p className="date">Last updated: Mar 4, 2022 &#183; 15min</p>
+                <p className="date">Published: Mar 3, 2022 &#183; 15min</p>
+                <p className="date">Last update: Mar 18, 2022 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -218,19 +222,21 @@ const Challenge3 = () => {
                         className="answer-container code-snippet"
                         style={{
                             border: "1px solid #e9d8a6",
-                            padding: "0 0.5em 0.45em",
+                            padding: "0 0.5em 0.5em",
                         }}
                     >
                         <br />
                         <p>
                             To solve this challenge we're going to apply the{" "}
-                            <a
-                                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder"
-                                target="_blank"
-                                className="bold"
-                            >
-                                <code>remainder</code>
-                            </a>{" "}
+                            <code className="code">
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder"
+                                    target="_blank"
+                                    className="bold"
+                                >
+                                    remainder
+                                </a>
+                            </code>{" "}
                             operator to determine which characters from the
                             string will be transform to uppercase:
                         </p>
@@ -266,6 +272,10 @@ const Challenge3 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeString}
                             </SyntaxHighlighter>

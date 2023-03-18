@@ -26,6 +26,7 @@ const Container = styled.div`
 
     .paragraph {
         line-height: 1.7;
+        font-family: "Poppins", sans-serif;
     }
 
     .bold {
@@ -49,6 +50,7 @@ const Container = styled.div`
         margin-top: 0.5em;
         margin-left: 2.5em;
         line-height: 1.8;
+        font-family: "Poppins", sans-serif;
     }
 
     .margin-top {
@@ -83,11 +85,13 @@ const Container = styled.div`
         height: 0;
         overflow: hidden;
         transition: height 0.7s ease;
+        padding-bottom: 0.05em;
     }
 
     .code-snippet {
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+        font-family: monospace;
     }
 
     .snippet-button {
@@ -98,6 +102,7 @@ const Container = styled.div`
         align-items: center;
         gap: 5px;
         font-size: inherit;
+        font-family: "Poppins", sans-serif;
     }
 
     .code {
@@ -141,7 +146,8 @@ const Challenge1 = () => {
             <Navbar />
             <div className="main">
                 <h1 className="title">01 - Panic Function</h1>
-                <p className="date">Last updated: Mar 4, 2022 &#183; 20min</p>
+                <p className="date">Published: Feb 27, 2022 &#183; 20min</p>
+                <p className="date">Last update: Mar 18, 2022 &#183; 20min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -227,7 +233,7 @@ const Challenge1 = () => {
                         }}
                     >
                         <br />
-                        <p>
+                        <p className="paragraph">
                             We're going to implement the following three
                             JavaScript's built-in methods:
                         </p>
@@ -273,7 +279,7 @@ const Challenge1 = () => {
                         <br />
                         <div className="snippet">
                             <div className="snippet-header">
-                                <p>Example Code</p>
+                                <p className="paragraph">Example Code</p>
                                 {copyA ? (
                                     <button className="snippet-button">
                                         <BsCheck2All />
@@ -302,25 +308,29 @@ const Challenge1 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeStringA}
                             </SyntaxHighlighter>
                         </div>
                         <br />
-                        <p>
+                        <p className="paragraph">
                             To the <code className="code">join()</code> method
                             we can pass with <i>what</i> we want to concatenate
                             the words of the array to create a new sentence.
                         </p>
                         <br />
-                        <p>
+                        <p className="paragraph">
                             In JavaScript we can chain methods and provide a
                             DRYer solution like this:
                         </p>
                         <br />
                         <div className="snippet margin-top">
                             <div className="snippet-header">
-                                <p>Example Code</p>
+                                <p className="paragraph">Example Code</p>
                                 {copyB ? (
                                     <button className="snippet-button">
                                         <BsCheck2All />
@@ -349,6 +359,10 @@ const Challenge1 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeStringB}
                             </SyntaxHighlighter>
@@ -390,7 +404,7 @@ const Challenge1 = () => {
                         className="answer-container code-snippet"
                         style={{
                             border: "1px solid #e9d8a6",
-                            padding: "0 0.4em 0.4em",
+                            padding: "0 0.5em 0.51em",
                         }}
                     >
                         <br />
@@ -444,6 +458,10 @@ const Challenge1 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeStringC}
                             </SyntaxHighlighter>

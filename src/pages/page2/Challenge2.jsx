@@ -82,6 +82,7 @@ const Container = styled.div`
         height: 0;
         overflow: hidden;
         transition: height 0.7s ease;
+        padding-bottom: 0.05em;
     }
 
     .code-snippet {
@@ -98,6 +99,7 @@ const Container = styled.div`
         gap: 5px;
         font-size: inherit;
         cursor: pointer;
+        font-family: "Poppins", sans-serif;
     }
 
     .code {
@@ -133,24 +135,25 @@ const Challenge2 = () => {
     const parentRef = useRef()
 
     const codeString = `
-        function whisper(str) {
-            const lowerCaseString = str.toLowerCase()
-            if (lowerCaseString.endsWith("!")) {
-                    return "shh... " + lowerCaseString.slice(0, -1)
-            } else {
-                    return "shh... " + lowerCaseString
-            }
-        }
+function whisper(str) {
+    const lowerCaseString = str.toLowerCase()
+    if (lowerCaseString.endsWith("!")) {
+        return "shh... " + lowerCaseString.slice(0, -1)
+    } else {
+        return "shh... " + lowerCaseString
+    }
+}
     
-        console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wendy's 
-    `
+console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wendy's 
+`
 
     return (
         <Container>
             <Navbar />
             <div className="main">
                 <h1 className="title">02 - Whisper Function</h1>
-                <p className="date">Feb 28, 2022 &#183; 20min</p>
+                <p className="date">Published: Feb 28, 2022 &#183; 20min</p>
+                <p className="date">Last Update: Mar 18, 2022 &#183; 20min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -302,6 +305,10 @@ const Challenge2 = () => {
                                 className="code-snippet"
                                 language="javascript"
                                 style={a11yDark}
+                                customStyle={{
+                                    paddingLeft: 20,
+                                    paddingBottom: 20,
+                                }}
                             >
                                 {codeString}
                             </SyntaxHighlighter>
