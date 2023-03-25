@@ -153,7 +153,7 @@ console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wen
             <div className="main">
                 <h1 className="title">02 - Whisper Function</h1>
                 <p className="date">Published: Feb 28, 2022 &#183; 20min</p>
-                <p className="date">Last Update: Mar 18, 2022 &#183; 20min</p>
+                <p className="date">Last Update: Mar 25, 2022 &#183; 20min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -241,7 +241,7 @@ console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wen
                                     <code>toLowerCase()</code>
                                 </a>
                                 <span>
-                                    : Transforms the caracthers of a string to
+                                    : transforms the caracthers of a string to
                                     lowercase
                                 </span>
                             </li>
@@ -254,7 +254,7 @@ console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wen
                                     <code>endsWith()</code>
                                 </a>
                                 <span>
-                                    : Checks if a string ends with a specific
+                                    : checks if a string ends with a specific
                                     character. Returns either true or false.
                                 </span>
                             </li>
@@ -267,7 +267,7 @@ console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wen
                                     <code>slice()</code>
                                 </a>
                                 <span>
-                                    : Extracts a segment of a string, this
+                                    : extracts a segment of a string, this
                                     method returns a new string without
                                     modifying the original.
                                 </span>
