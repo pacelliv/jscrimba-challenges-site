@@ -147,7 +147,7 @@ const Challenge1 = () => {
             <div className="main">
                 <h1 className="title">01 - Panic Function</h1>
                 <p className="date">Published: Feb 27, 2022 &#183; 20min</p>
-                <p className="date">Last update: Mar 18, 2022 &#183; 20min</p>
+                <p className="date">Last update: Mar 25, 2022 &#183; 20min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -155,8 +155,9 @@ const Challenge1 = () => {
                 <p className="paragraph">
                     Write a function <code className="code">panic</code>. The
                     function should take in a sentence and return the same
-                    sentence in all caps with an exclamation point (!) at the
-                    end. Use JavaScript's built in string methods.
+                    sentence in all caps with an exclamation point{" "}
+                    <code className="code">!</code> at the end. Use JavaScript's
+                    built in string methods.
                 </p>
                 <br />
                 <p className="paragraph">
@@ -246,7 +247,7 @@ const Challenge1 = () => {
                                 >
                                     <code>split()</code>
                                 </a>
-                                <span>: Turns the string into an array.</span>
+                                <span>: turns the string into an array.</span>
                             </li>
                             <li>
                                 <a
@@ -257,7 +258,7 @@ const Challenge1 = () => {
                                     <code>join()</code>
                                 </a>
                                 <span>
-                                    : Concatenates the array back into a string.
+                                    : concatenates the array back into a string.
                                     You can pass to the method how would you
                                     like to concatenate the array.
                                 </span>
@@ -271,7 +272,7 @@ const Challenge1 = () => {
                                     <code>toUpperCase()</code>
                                 </a>
                                 <span>
-                                    : Transform the letters of the string to
+                                    : transform the letters of the string to
                                     uppercase.
                                 </span>
                             </li>
