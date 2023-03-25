@@ -165,7 +165,7 @@ console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
             <div className="main">
                 <h1 className="title">04 - toTitleCase</h1>
                 <p className="date">Published: Mar 4, 2022 &#183; 15min</p>
-                <p className="date">Last update: Mar 18, 2022 &#183; 15min</p>
+                <p className="date">Last update: Mar 25, 2022 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
@@ -177,9 +177,9 @@ console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
 
                 <br />
                 <p className="paragraph">
-                    Divide this challenge in two parts: (a) first, write a
-                    function <code className="code">capitalizeWord</code> that
-                    takes in one word and capitalizes the first letter.
+                    Divide this challenge in two parts: (a) write a function{" "}
+                    <code className="code">capitalizeWord</code> that takes in
+                    one word and capitalizes the first letter.
                 </p>
                 <br />
                 <p className="paragraph">Example:</p>
