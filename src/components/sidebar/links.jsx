@@ -4,6 +4,7 @@ import { BiVolumeLow } from "react-icons/bi"
 import { HiOutlineSwitchVertical } from "react-icons/hi"
 import { RxLetterCaseCapitalize } from "react-icons/rx"
 import { ImTrophy } from "react-icons/im"
+import { MdEmojiSymbols } from "react-icons/md"
 
 export const links = [
     {
@@ -35,5 +36,10 @@ export const links = [
         label: "Challenge 5",
         icon: <ImTrophy />,
         to: "/challenge5",
+    },
+    {
+        label: "Challenge 6",
+        icon: <MdEmojiSymbols />,
+        to: "/challenge6",
     },
 ]
