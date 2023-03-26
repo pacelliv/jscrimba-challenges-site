@@ -10,7 +10,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.55em 3.9em 1.55em 1.55em;
+    padding: 1.55em 3.4em 1.55em 1em;
     max-width: 800px;
     margin: 0 auto;
 

@@ -10,7 +10,7 @@ const Container = styled.div`
     padding-bottom: 1em;
 
     .main {
-        padding: 1.2em 1.55em;
+        padding: 1.2em 1em;
         max-width: 800px;
         margin: 0 auto;
     }
