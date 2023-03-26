@@ -6,6 +6,7 @@ import Challenge3 from "../pages/page3/Challenge3"
 import Challenge4 from "../pages/page4/Challenge4"
 import Challenge5 from "../pages/page5/Challenge5"
 import Challenge6 from "../pages/page6/Challenge6"
+import Challenge7 from "../pages/page7/Challenge7"
 
 const AppRoutes = () => {
     return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
             <Route path="/challenge4" element={<Challenge4 />} />
             <Route path="/challenge5" element={<Challenge5 />} />
             <Route path="/challenge6" element={<Challenge6 />} />
+            <Route path="/challenge7" element={<Challenge7 />} />
         </Routes>
     )
 }
