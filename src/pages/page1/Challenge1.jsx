@@ -370,8 +370,6 @@ const Challenge1 = () => {
                         </div>
                     </div>
                 </div>
-
-                {/*  */}
                 <br />
                 <div className="solution-container snippet-header beige snippet unset">
                     <p className="paragraph bold">Solution B:</p>
