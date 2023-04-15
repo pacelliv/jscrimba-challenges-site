@@ -20,6 +20,7 @@ const Container = styled.div`
     background-color: ${(props) => props.theme.bg};
     text-align: center;
     transition: all 0.4s ease;
+    overflow-y: auto;
 
     .x-mark {
         position: absolute;

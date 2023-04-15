@@ -6,6 +6,7 @@ import { RxLetterCaseCapitalize } from "react-icons/rx"
 import { ImTrophy } from "react-icons/im"
 import { MdEmojiSymbols } from "react-icons/md"
 import { BsFileWord } from "react-icons/bs"
+import { RiAliensLine } from "react-icons/ri"
 
 export const links = [
     {
@@ -47,5 +48,10 @@ export const links = [
         label: "Challenge 7",
         icon: <BsFileWord />,
         to: "/challenge7",
+    },
+    {
+        label: "Challenge 8",
+        icon: <RiAliensLine />,
+        to: "/challenge8",
     },
 ]
