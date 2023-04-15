@@ -157,8 +157,8 @@ awardBonuses() // too many lines, try it yourself!
             <Navbar />
             <div className="main">
                 <h1 className="title">05 - Totally Not Another FizzBuzz</h1>
-                <p className="date">Published: Mar 6, 2022 &#183; 15min</p>
-                <p className="date">Last update: Mar 18, 2022 &#183; 15min</p>
+                <p className="date">Published: Mar 6, 2023</p>
+                <p className="date">Last update: Mar 18, 2023 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph bold">Challenge:</p>

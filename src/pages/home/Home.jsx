@@ -47,7 +47,7 @@ const Home = () => {
             <Navbar />
             <div className="main">
                 <h1 className="title">Welcome to JScrimba Challenges👋</h1>
-                <p className="date">Published: Feb 27, 2022 &#183; 5min</p>
+                <p className="date">Published: Feb 27, 2023 &#183; 5min</p>
                 <br />
                 <br />
                 <p className="paragraph">
