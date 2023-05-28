@@ -6,6 +6,8 @@ import Navbar from "../../components/navbar/Navbar"
 import { MdOutlineContentCopy } from "react-icons/md"
 import { BsCheck2All } from "react-icons/bs"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
+import SolutionHeader from "../../components/SolutionHeader"
+import SnippetContainer from "../../components/SnippetContainer"
 
 const Container = styled.div`
     height: 100vh;
@@ -190,25 +192,11 @@ console.log(altCaps("When you visit Portland you have to go to VooDoo Donuts"))
                     </li>
                 </ul>
                 <br />
-                <div className="solution-container snippet-header beige snippet unset">
-                    <p className="paragraph bold">Solution:</p>
-                    {isOpen ? (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            [
-                            <AiOutlineMinus />] Hide Solution
-                        </button>
-                    ) : (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            [<AiOutlinePlus />] Show Solution
-                        </button>
-                    )}
-                </div>
+                <SolutionHeader
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    title={"Solution:"}
+                />
                 <div
                     className="content-parent"
                     ref={parentRef}
@@ -241,45 +229,11 @@ console.log(altCaps("When you visit Portland you have to go to VooDoo Donuts"))
                             string will be transform to uppercase:
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyA ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeString
-                                            )
-                                            setCopyA(true)
-                                            setTimeout(
-                                                () => setCopyA(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeString}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyA}
+                            setCopy={setCopyA}
+                            codeString={codeString}
+                        />
                         <br />
                         <p>
                             The remainder operator (%) retuns the remainder left
