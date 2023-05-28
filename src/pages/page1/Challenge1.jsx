@@ -197,7 +197,7 @@ const Challenge1 = () => {
                 <SolutionHeader
                     isOpen={isOpenA}
                     setIsOpen={setIsOpenA}
-                    title={"Solution A"}
+                    title={"Solution A:"}
                 />
                 <div
                     className="content-parent"
@@ -289,7 +289,7 @@ const Challenge1 = () => {
                 <SolutionHeader
                     isOpen={isOpenB}
                     setIsOpen={setIsOpenB}
-                    title={"Solution B"}
+                    title={"Solution B:"}
                 />
                 <div
                     className="content-parent"
