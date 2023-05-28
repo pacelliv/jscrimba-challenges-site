@@ -226,7 +226,7 @@ console.log(altCaps("When you visit Portland you have to go to VooDoo Donuts"))
                                 </a>
                             </code>{" "}
                             operator to determine which characters from the
-                            string will be transform to uppercase:
+                            string will be transformed to uppercase:
                         </p>
                         <br />
                         <SnippetContainer
