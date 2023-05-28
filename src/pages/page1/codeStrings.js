@@ -10,7 +10,7 @@ console.log(panic("winter is coming"))
 `
 
 const codeStringB = `
-export function panic(str) {
+function panic(str) {
      return str.split(" ").join(" 😱 ").toUpperCase() + "!"
 }
 
