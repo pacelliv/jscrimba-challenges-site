@@ -190,20 +190,19 @@ console.log(reverseStringsInArray(messages))
                     the backward messages so we can read what they have to say!
                 </p>
                 <br />
+                <p className="paragraph bold">Challenge:</p>
+                <br />
                 <SnippetContainer
                     copy={copyA}
                     setCopy={setCopyA}
                     codeString={codeStringA}
                 />
                 <br />
-                <p className="paragraph bold">Challenge:</p>
-                <br />
                 <p className="paragraph">
-                    <strong>Step 1</strong>: Reverse a string. Write a function
-                    that takes in a string and returns the reverse of that
-                    string. For this challenge try to reverse the string using
-                    string methods and also try to do it manually. Practice both
-                    ways!
+                    <strong>Step 1</strong>: Write a function that takes in a
+                    string and returns the reverse of that string. For this
+                    challenge try to reverse the string using string methods and
+                    also try to do it manually. Practice both ways!
                 </p>
                 <br />
                 <p className="paragraph">Examples:</p>
