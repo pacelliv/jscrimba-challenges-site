@@ -209,7 +209,7 @@ console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wen
                     >
                         <br />
                         <p>
-                            For this challenge we're going to apply the
+                            To solve this challenge we're going to apply the
                             following three JavaScript's string built-in
                             methods:
                         </p>
@@ -223,8 +223,8 @@ console.log(whisper("MA'AM, this is a Wendy's!")) // shh... ma'am, this is a wen
                                     <code>toLowerCase()</code>
                                 </a>
                                 <span>
-                                    : transforms the caracthers of a string to
-                                    lowercase
+                                    : transforms the characters of a string to
+                                    lowercase.
                                 </span>
                             </li>
                             <li>
