@@ -1,12 +1,9 @@
-import SyntaxHighlighter from "react-syntax-highlighter"
-import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { useState, useRef } from "react"
 import styled from "styled-components"
 import Navbar from "../../components/navbar/Navbar"
-import { MdOutlineContentCopy } from "react-icons/md"
-import { BsCheck2All } from "react-icons/bs"
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 import { codeStringA, codeStringB, codeStringC } from "./codeStrings"
+import SolutionHeader from "../../components/SolutionHeader"
+import SnippetContainer from "../../components/SnippetContainer"
 
 const Container = styled.div`
     height: 100vh;
@@ -197,26 +194,11 @@ const Challenge1 = () => {
                     </li>
                 </ul>
                 <br />
-
-                <div className="solution-container snippet-header beige snippet unset">
-                    <p className="paragraph bold">Solution A:</p>
-                    {isOpenA ? (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenA(!isOpenA)}
-                        >
-                            [
-                            <AiOutlineMinus />] Hide Solution
-                        </button>
-                    ) : (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenA(!isOpenA)}
-                        >
-                            [<AiOutlinePlus />] Show Solution
-                        </button>
-                    )}
-                </div>
+                <SolutionHeader
+                    isOpen={isOpenA}
+                    setIsOpen={setIsOpenA}
+                    title={"Solution A"}
+                />
                 <div
                     className="content-parent"
                     ref={parentRefA}
@@ -278,45 +260,11 @@ const Challenge1 = () => {
                             </li>
                         </ul>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p className="paragraph">Example Code</p>
-                                {copyA ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringA
-                                            )
-                                            setCopyA(true)
-                                            setTimeout(
-                                                () => setCopyA(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringA}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyA}
+                            setCopy={setCopyA}
+                            codeString={codeStringA}
+                        />
                         <br />
                         <p className="paragraph">
                             To the <code className="code">join()</code> method
@@ -329,67 +277,20 @@ const Challenge1 = () => {
                             DRYer solution like this:
                         </p>
                         <br />
-                        <div className="snippet margin-top">
-                            <div className="snippet-header">
-                                <p className="paragraph">Example Code</p>
-                                {copyB ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringB
-                                            )
-                                            setCopyB(true)
-                                            setTimeout(
-                                                () => setCopyB(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringB}
-                            </SyntaxHighlighter>
-                        </div>
+
+                        <SnippetContainer
+                            copy={copyB}
+                            setCopy={setCopyB}
+                            codeString={codeStringB}
+                        />
                     </div>
                 </div>
                 <br />
-                <div className="solution-container snippet-header beige snippet unset">
-                    <p className="paragraph bold">Solution B:</p>
-                    {isOpenB ? (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenB(!isOpenB)}
-                        >
-                            [
-                            <AiOutlineMinus />] Hide Solution
-                        </button>
-                    ) : (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenB(!isOpenB)}
-                        >
-                            [<AiOutlinePlus />] Show Solution
-                        </button>
-                    )}
-                </div>
+                <SolutionHeader
+                    isOpen={isOpenB}
+                    setIsOpen={setIsOpenB}
+                    title={"Solution B"}
+                />
                 <div
                     className="content-parent"
                     ref={parentRefB}
@@ -426,45 +327,11 @@ const Challenge1 = () => {
                             elements back into a single string:
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyC ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringC
-                                            )
-                                            setCopyC(true)
-                                            setTimeout(
-                                                () => setCopyC(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringC}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyC}
+                            setCopy={setCopyC}
+                            codeString={codeStringC}
+                        />
                     </div>
                 </div>
             </div>
