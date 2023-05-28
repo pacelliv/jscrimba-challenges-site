@@ -6,6 +6,8 @@ import Navbar from "../../components/navbar/Navbar"
 import { MdOutlineContentCopy } from "react-icons/md"
 import { BsCheck2All } from "react-icons/bs"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
+import SnippetContainer from "../../components/SnippetContainer"
+import SolutionHeader from "../../components/SolutionHeader"
 
 const Container = styled.div`
     height: 100vh;
@@ -193,40 +195,11 @@ console.log(reverseStringsInArray(messages))
                     the backward messages so we can read what they have to say!
                 </p>
                 <br />
-                <div className="snippet">
-                    <div className="snippet-header">
-                        <p>Example Code</p>
-                        {copyA ? (
-                            <button className="snippet-button">
-                                <BsCheck2All />
-                                Copied!
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    navigator.clipboard.writeText(codeStringA)
-                                    setCopyA(true)
-                                    setTimeout(() => setCopyA(false), 2000)
-                                }}
-                                className="snippet-button"
-                            >
-                                <MdOutlineContentCopy />
-                                Copy Code
-                            </button>
-                        )}
-                    </div>
-                    <SyntaxHighlighter
-                        className="code-snippet"
-                        language="javascript"
-                        style={a11yDark}
-                        customStyle={{
-                            paddingLeft: 20,
-                            paddingBottom: 20,
-                        }}
-                    >
-                        {codeStringA}
-                    </SyntaxHighlighter>
-                </div>
+                <SnippetContainer
+                    copy={copyA}
+                    setCopy={setCopyA}
+                    codeString={codeStringA}
+                />
                 <br />
                 <p className="paragraph bold">Challenge:</p>
                 <br />
@@ -262,25 +235,11 @@ console.log(reverseStringsInArray(messages))
                     <code className="code">reverseString()</code> function.
                 </p>
                 <br />
-                <div className="solution-container snippet-header beige snippet unset">
-                    <p className="paragraph bold">Solution A:</p>
-                    {isOpenA ? (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenA(!isOpenA)}
-                        >
-                            [
-                            <AiOutlineMinus />] Hide Solution
-                        </button>
-                    ) : (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenA(!isOpenA)}
-                        >
-                            [<AiOutlinePlus />] Show Solution
-                        </button>
-                    )}
-                </div>
+                <SolutionHeader
+                    isOpen={isOpenA}
+                    setIsOpen={setIsOpenA}
+                    title={"Solution A:"}
+                />
                 <div
                     className="content-parent"
                     ref={parentRefA}
@@ -303,45 +262,11 @@ console.log(reverseStringsInArray(messages))
                             known string methods and a new array method.
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyB ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringB
-                                            )
-                                            setCopyB(true)
-                                            setTimeout(
-                                                () => setCopyB(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringB}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyB}
+                            setCopy={setCopyB}
+                            codeString={codeStringB}
+                        />
                         <br />
                         <p>
                             To create the{" "}
@@ -374,25 +299,11 @@ console.log(reverseStringsInArray(messages))
                     </div>
                 </div>
                 <br />
-                <div className="solution-container snippet-header beige snippet unset">
-                    <p className="paragraph bold">Solution B:</p>
-                    {isOpenB ? (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenB(!isOpenB)}
-                        >
-                            [
-                            <AiOutlineMinus />] Hide Solution
-                        </button>
-                    ) : (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpenB(!isOpenB)}
-                        >
-                            [<AiOutlinePlus />] Show Solution
-                        </button>
-                    )}
-                </div>
+                <SolutionHeader
+                    isOpen={isOpenB}
+                    setIsOpen={setIsOpenB}
+                    title={"Solution B:"}
+                />
                 <div
                     className="content-parent"
                     ref={parentRefB}
@@ -416,45 +327,11 @@ console.log(reverseStringsInArray(messages))
                             an alternative to solve this challenge.
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyC ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringC
-                                            )
-                                            setCopyC(true)
-                                            setTimeout(
-                                                () => setCopyC(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringC}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyC}
+                            setCopy={setCopyC}
+                            codeString={codeStringC}
+                        />
                         <br />
                         <p>
                             Inside <code className="code">reverseString()</code>{" "}

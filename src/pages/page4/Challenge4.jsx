@@ -6,6 +6,8 @@ import Navbar from "../../components/navbar/Navbar"
 import { MdOutlineContentCopy } from "react-icons/md"
 import { BsCheck2All } from "react-icons/bs"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
+import SolutionHeader from "../../components/SolutionHeader"
+import SnippetContainer from "../../components/SnippetContainer"
 
 const Container = styled.div`
     height: 100vh;
@@ -230,25 +232,11 @@ console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
                     and <code className="code">toUpperCase()</code> methods.
                 </p>
                 <br />
-                <div className="solution-container snippet-header beige snippet unset">
-                    <p className="paragraph bold">Solution:</p>
-                    {isOpen ? (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            [
-                            <AiOutlineMinus />] Hide Solution
-                        </button>
-                    ) : (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            [<AiOutlinePlus />] Show Solution
-                        </button>
-                    )}
-                </div>
+                <SolutionHeader
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    title={"Solution:"}
+                />
                 <div
                     className="content-parent"
                     ref={parentRef}
@@ -272,45 +260,11 @@ console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
                             letter of one word:
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyA ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringA
-                                            )
-                                            setCopyA(true)
-                                            setTimeout(
-                                                () => setCopyA(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringA}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyA}
+                            setCopy={setCopyA}
+                            codeString={codeStringA}
+                        />
                         <br />
                         <p>
                             <code className="code">Strings</code> in JavaScript
@@ -346,45 +300,11 @@ console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
                             <code className="code">toTitleCase</code> function:
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyB ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringB
-                                            )
-                                            setCopyB(true)
-                                            setTimeout(
-                                                () => setCopyB(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringB}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyB}
+                            setCopy={setCopyB}
+                            codeString={codeStringB}
+                        />
                         <br />
                         <p>
                             Writing pseudo code before jumping to solve a

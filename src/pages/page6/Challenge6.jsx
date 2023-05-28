@@ -6,6 +6,8 @@ import Navbar from "../../components/navbar/Navbar"
 import { MdOutlineContentCopy } from "react-icons/md"
 import { BsCheck2All } from "react-icons/bs"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
+import SnippetContainer from "../../components/SnippetContainer"
+import SolutionHeader from "../../components/SolutionHeader"
 
 const Container = styled.div`
     height: 100vh;
@@ -207,40 +209,11 @@ console.log(emojifyPhrase("I :heart: my :elephant:")) // "I 💜 my elephant"
                 <br />
                 <p className="paragraph bold">Challenge:</p>
                 <br />
-                <div className="snippet">
-                    <div className="snippet-header">
-                        <p>Example Code</p>
-                        {copyA ? (
-                            <button className="snippet-button">
-                                <BsCheck2All />
-                                Copied!
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    navigator.clipboard.writeText(codeStringA)
-                                    setCopyA(true)
-                                    setTimeout(() => setCopyA(false), 2000)
-                                }}
-                                className="snippet-button"
-                            >
-                                <MdOutlineContentCopy />
-                                Copy Code
-                            </button>
-                        )}
-                    </div>
-                    <SyntaxHighlighter
-                        className="code-snippet"
-                        language="javascript"
-                        style={a11yDark}
-                        customStyle={{
-                            paddingLeft: 20,
-                            paddingBottom: 20,
-                        }}
-                    >
-                        {codeStringA}
-                    </SyntaxHighlighter>
-                </div>
+                <SnippetContainer
+                    copy={copyA}
+                    setCopy={setCopyA}
+                    codeString={codeStringA}
+                />
                 <br />
                 <p className="paragraph">
                     1. Write a function that checks if a lowercase word starts
@@ -311,25 +284,11 @@ console.log(emojifyPhrase("I :heart: my :elephant:")) // "I 💜 my elephant"
                     </li>
                 </ul>
                 <br />
-                <div className="solution-container snippet-header beige snippet unset">
-                    <p className="paragraph bold">Solution:</p>
-                    {isOpen ? (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            [
-                            <AiOutlineMinus />] Hide Solution
-                        </button>
-                    ) : (
-                        <button
-                            className="snippet-button"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            [<AiOutlinePlus />] Show Solution
-                        </button>
-                    )}
-                </div>
+                <SolutionHeader
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    title={"Solution:"}
+                />
                 <div
                     className="content-parent"
                     ref={parentRef}
@@ -364,45 +323,11 @@ console.log(emojifyPhrase("I :heart: my :elephant:")) // "I 💜 my elephant"
                             <code className="code">emojifyWord</code> function:
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyB ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringB
-                                            )
-                                            setCopyB(true)
-                                            setTimeout(
-                                                () => setCopyB(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringB}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyB}
+                            setCopy={setCopyB}
+                            codeString={codeStringB}
+                        />
                         <br />
                         <p>
                             Using an IF-statement we verify if the word starts
@@ -453,45 +378,11 @@ console.log(emojifyPhrase("I :heart: my :elephant:")) // "I 💜 my elephant"
                             function.
                         </p>
                         <br />
-                        <div className="snippet">
-                            <div className="snippet-header">
-                                <p>Example Code</p>
-                                {copyC ? (
-                                    <button className="snippet-button">
-                                        <BsCheck2All />
-                                        Copied!
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(
-                                                codeStringC
-                                            )
-                                            setCopyC(true)
-                                            setTimeout(
-                                                () => setCopyC(false),
-                                                2000
-                                            )
-                                        }}
-                                        className="snippet-button"
-                                    >
-                                        <MdOutlineContentCopy />
-                                        Copy Code
-                                    </button>
-                                )}
-                            </div>
-                            <SyntaxHighlighter
-                                className="code-snippet"
-                                language="javascript"
-                                style={a11yDark}
-                                customStyle={{
-                                    paddingLeft: 20,
-                                    paddingBottom: 20,
-                                }}
-                            >
-                                {codeStringC}
-                            </SyntaxHighlighter>
-                        </div>
+                        <SnippetContainer
+                            copy={copyC}
+                            setCopy={setCopyC}
+                            codeString={codeStringC}
+                        />
                         <br />
                         <p>
                             The solution should look very familiar to you, let
