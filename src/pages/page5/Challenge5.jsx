@@ -157,8 +157,7 @@ awardBonuses() // too many lines, try it yourself!
                 <p className="date">Published: Mar 6, 2023</p>
                 <p className="date">Last update: Mar 18, 2023 &#183; 15min</p>
                 <br />
-                <br />
-                <p className="paragraph bold">Challenge:</p>
+                <h2 className="margin-top">Challenge:</h2>
                 <br />
                 <p className="paragraph">
                     Scrimba CEO Per Borgen wants you to write a program to grant

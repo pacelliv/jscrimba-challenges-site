@@ -190,7 +190,7 @@ console.log(reverseStringsInArray(messages))
                     the backward messages so we can read what they have to say!
                 </p>
                 <br />
-                <p className="paragraph bold">Challenge:</p>
+                <h2 className="margin-top">Challenge:</h2>
                 <br />
                 <SnippetContainer
                     copy={copyA}

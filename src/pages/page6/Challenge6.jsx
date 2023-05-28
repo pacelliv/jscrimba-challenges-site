@@ -202,7 +202,7 @@ console.log(emojifyPhrase("I :heart: my :elephant:")) // "I 💜 my elephant"
                     will replace that text with 😊.
                 </p>
                 <br />
-                <p className="paragraph bold">Challenge:</p>
+                <h2 className="margin-top">Challenge:</h2>
                 <br />
                 <SnippetContainer
                     copy={copyA}

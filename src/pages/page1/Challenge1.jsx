@@ -146,8 +146,7 @@ const Challenge1 = () => {
                 <p className="date">Published: Feb 27, 2023</p>
                 <p className="date">Last update: Mar 25, 2023 &#183; 20min</p>
                 <br />
-                <br />
-                <p className="paragraph bold">Challenge:</p>
+                <h2 className="margin-top">Challenge:</h2>
                 <br />
                 <p className="paragraph">
                     Write a function <code className="code">panic</code>. The

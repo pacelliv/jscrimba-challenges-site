@@ -157,8 +157,7 @@ console.log(altCaps("When you visit Portland you have to go to VooDoo Donuts"))
                 <p className="date">Published: Mar 3, 2023</p>
                 <p className="date">Last update: Mar 18, 2023 &#183; 15min</p>
                 <br />
-                <br />
-                <p className="paragraph bold">Challenge:</p>
+                <h2 className="margin-top">Challenge:</h2>
                 <br />
                 <p className="paragraph">
                     Write a function that takes in a string of letters and

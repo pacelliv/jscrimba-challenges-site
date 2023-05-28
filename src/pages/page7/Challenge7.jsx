@@ -162,7 +162,7 @@ console.log(isAnagram("treasure", "measure")) // false
                     spell "gallery".
                 </p>
                 <br />
-                <p className="paragraph bold">Challenge:</p>
+                <h2 className="margin-top">Challenge:</h2>
                 <br />
                 <p className="paragraph">
                     Write a function to check if two strings of lowercase
