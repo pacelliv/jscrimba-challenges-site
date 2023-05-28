@@ -151,7 +151,7 @@ console.log(isAnagram("treasure", "measure")) // false
             <Navbar />
             <div className="main">
                 <h1 className="title">07 - It Is An Anagram</h1>
-                <p className="date">Published: Mar 26, 2023 &#183; 15min</p>
+                <p className="date">Published: May 28, 2023 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph">

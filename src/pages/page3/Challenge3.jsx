@@ -155,7 +155,7 @@ console.log(altCaps("When you visit Portland you have to go to VooDoo Donuts"))
             <div className="main">
                 <h1 className="title">03 - Alternating Caps</h1>
                 <p className="date">Published: Mar 3, 2023</p>
-                <p className="date">Last update: Mar 18, 2023 &#183; 15min</p>
+                <p className="date">Last update: May 28, 2023 &#183; 15min</p>
                 <br />
                 <h2 className="margin-top">Challenge:</h2>
                 <br />

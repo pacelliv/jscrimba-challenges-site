@@ -180,7 +180,8 @@ console.log(reverseStringsInArray(messages))
             <Navbar />
             <div className="main">
                 <h1 className="title">08 - Decode An Alien Message</h1>
-                <p className="date">Published: Apr 15, 2023 &#183; 15min</p>
+                <p className="date">Published: Apr 15, 2023</p>
+                <p className="date">Published: May 28, 2023 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph">

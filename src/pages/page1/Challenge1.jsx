@@ -144,7 +144,7 @@ const Challenge1 = () => {
             <div className="main">
                 <h1 className="title">01 - Panic Function</h1>
                 <p className="date">Published: Feb 27, 2023</p>
-                <p className="date">Last update: Mar 25, 2023 &#183; 20min</p>
+                <p className="date">Last update: May 28, 2023 &#183; 20min</p>
                 <br />
                 <h2 className="margin-top">Challenge:</h2>
                 <br />

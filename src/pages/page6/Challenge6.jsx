@@ -180,7 +180,7 @@ console.log(emojifyPhrase("I :heart: my :elephant:")) // "I 💜 my elephant"
             <Navbar />
             <div className="main">
                 <h1 className="title">06 - Emojify!</h1>
-                <p className="date">Published: Mar 25, 2023 &#183; 15min</p>
+                <p className="date">Published: May 28, 2023 &#183; 15min</p>
                 <br />
                 <br />
                 <p className="paragraph">

@@ -162,7 +162,7 @@ console.log(toTitleCase("pumpkin pranced purposefully across the pond"))
             <div className="main">
                 <h1 className="title">04 - toTitleCase</h1>
                 <p className="date">Published: Mar 4, 2023</p>
-                <p className="date">Last update: Mar 25, 2023 &#183; 15min</p>
+                <p className="date">Last update: May 28, 2023 &#183; 15min</p>
                 <br />
                 <h2 className="margin-top">Challenge:</h2>
                 <br />
