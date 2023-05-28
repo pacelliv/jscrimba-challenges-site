@@ -36,6 +36,10 @@ const Container = styled.div`
         margin-top: 1em;
     }
 
+    .links-container:last-child {
+        margin-bottom: 1.4em;
+    }
+
     .links-container:hover {
         background-color: ${(props) => props.theme.bg3};
         transition: all 0.3s ease;
@@ -46,8 +50,8 @@ const Container = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
-        gap: 6px;
-        padding: 0.3em 0.3em;
+        gap: 8px;
+        padding: 0.4em 0.3em;
         text-decoration: none;
         color: ${(props) => props.theme.text};
         transition: all 0.3s ease;
