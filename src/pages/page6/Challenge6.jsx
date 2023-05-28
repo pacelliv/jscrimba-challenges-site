@@ -147,8 +147,6 @@ const emojis = {
 }
 `
 
-    const codeString = ""
-
     const codeStringB = `
 function emojifyWord(word) {
     if (word.startsWith(":") && word.endsWith(":")) {
