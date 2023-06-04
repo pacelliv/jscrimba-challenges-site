@@ -7,6 +7,7 @@ import { ImTrophy } from "react-icons/im"
 import { MdEmojiSymbols } from "react-icons/md"
 import { BsFileWord } from "react-icons/bs"
 import { RiAliensLine } from "react-icons/ri"
+import { VscWordWrap } from "react-icons/vsc"
 
 export const links = [
     {
@@ -53,5 +54,10 @@ export const links = [
         label: "Challenge 8",
         icon: <RiAliensLine />,
         to: "/challenge8",
+    },
+    {
+        label: "Challenge 9",
+        icon: <VscWordWrap />,
+        to: "/challenge9",
     },
 ]
